@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Biografia • Antônio Conselheiro</title>
+
+  <style>
+
+    /* ==========================================
+       RESET
+    ========================================== */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+
+      font-family:"Segoe UI",sans-serif;
+
+      background:
+      radial-gradient(
+        circle at top,
+        rgba(244,227,0,0.08),
+        transparent 20%
+      ),
+
+      linear-gradient(
+        to bottom,
+        #050505,
+        #0B0B0B,
+        #111111
+      );
+
+      color:#F5F5F5;
+
+      overflow-x:hidden;
+    }
+
+    img{
+      display:block;
+      width:100%;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    :root{
+
+      --cor-preta:#050505;
+
+      --cor-grafite:#111111;
+
+      --cor-card:#1A1A1A;
+
+      --cor-amarela:#F4E300;
+
+      --cor-dourada:#C9A227;
+
+      --texto-principal:#F5F5F5;
+
+      --texto-secundario:#CFCFCF;
+
+      --borda-amarela:
+      rgba(244,227,0,0.18);
+
+      --sombra-principal:
+      0 15px 45px rgba(0,0,0,0.55);
+
+      --transicao:
+      0.35s ease;
+    }
+
+    /* ==========================================
+       HERO PRINCIPAL
+    ========================================== */
+
+    .hero-biografia-singular{
+
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+
+      padding:
+      4rem 7%;
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .hero-biografia-singular::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:800px;
+      height:800px;
+
+      background:
+      radial-gradient(
+        circle,
+        rgba(244,227,0,0.12),
+        transparent 70%
+      );
+
+      top:-350px;
+      right:-250px;
+
+      border-radius:50%;
+    }
+
+    .container-hero-biografico{
+
+      width:100%;
+
+      max-width:1350px;
+
+      margin:0 auto;
+
+      display:grid;
+
+      grid-template-columns:
+      1fr 1fr;
+
+      gap:5rem;
+
+      align-items:center;
+
+      position:relative;
+
+      z-index:2;
+    }
+
+    /* ==========================================
+       FOTO HERO
+    ========================================== */
+
+    .bloco-imagem-biografica{
+
+      position:relative;
+    }
+
+    .imagem-retrato-historico{
+
+      border-radius:30px;
+
+      overflow:hidden;
+
+      border:
+      1px solid var(--borda-amarela);
+
+      box-shadow:
+      var(--sombra-principal);
+    }
+
+    .imagem-retrato-historico img{
+
+      height:700px;
+
+      object-fit:cover;
+
+      transition:
+      transform 0.7s ease;
+    }
+
+    .imagem-retrato-historico:hover img{
+
+      transform:scale(1.04);
+    }
+
+    .selo-era-historica{
+
+  margin-top:1.5rem;
+
+  background:
+  rgba(10,10,10,0.92);
+
+  border:
+  1px solid var(--borda-amarela);
+
+  backdrop-filter:blur(8px);
+
+  padding:
+  1rem 1.5rem;
+
+  border-radius:18px;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.45);
+
+  text-align:center;
+}
+    .selo-era-historica span{
+
+      display:block;
+
+      color:var(--cor-amarela);
+
+      font-size:0.85rem;
+
+      margin-bottom:0.4rem;
+
+      letter-spacing:1px;
+
+      text-transform:uppercase;
+    }
+
+    .selo-era-historica h3{
+
+      font-size:1.2rem;
+    }
+
+    /* ==========================================
+       CONTEÚDO HERO
+    ========================================== */
+
+    .conteudo-biografia-detalhada{
+
+      position:relative;
+    }
+
+    .categoria-personagem{
+
+      color:var(--cor-amarela);
+
+      text-transform:uppercase;
+
+      letter-spacing:2px;
+
+      font-size:0.85rem;
+
+      margin-bottom:1rem;
+
+      font-weight:700;
+    }
+
+    .titulo-personagem-historico{
+
+      font-size:
+      clamp(3rem,7vw,5.8rem);
+
+      line-height:1.05;
+
+      margin-bottom:1.5rem;
+
+      font-weight:800;
+    }
+
+    .titulo-personagem-historico span{
+
+      color:var(--cor-amarela);
+
+      text-shadow:
+      0 0 15px rgba(244,227,0,0.25);
+    }
+
+    .frase-impacto-biografico{
+
+      font-size:1.3rem;
+
+      color:var(--texto-secundario);
+
+      line-height:1.8;
+
+      margin-bottom:2rem;
+
+      max-width:700px;
+    }
+
+    /* ==========================================
+       INFORMAÇÕES RÁPIDAS
+    ========================================== */
+
+    .grade-informacoes-biograficas{
+
+      display:grid;
+
+      grid-template-columns:
+      repeat(3,1fr);
+
+      gap:1rem;
+
+      margin-bottom:2rem;
+    }
+
+    .cartao-informacao-historica{
+
+      background:
+      rgba(20,20,20,0.92);
+
+      border:
+      1px solid var(--borda-amarela);
+
+      border-radius:20px;
+
+      padding:1.4rem;
+
+      transition:var(--transicao);
+    }
+
+    .cartao-informacao-historica:hover{
+
+      transform:
+      translateY(-6px);
+
+      border-color:
+      rgba(244,227,0,0.4);
+    }
+
+    .cartao-informacao-historica span{
+
+      display:block;
+
+      color:var(--cor-amarela);
+
+      font-size:0.8rem;
+
+      margin-bottom:0.6rem;
+
+      letter-spacing:1px;
+
+      text-transform:uppercase;
+    }
+
+    .cartao-informacao-historica h4{
+
+      font-size:1rem;
+
+      line-height:1.5;
+    }
+
+    /* ==========================================
+       BOTÕES
+    ========================================== */
+
+    .grupo-acoes-biografia{
+
+      display:flex;
+
+      gap:1rem;
+
+      flex-wrap:wrap;
+    }
+
+    .botao-principal-biografia{
+
+      background:
+      var(--cor-amarela);
+
+      color:#050505;
+
+      padding:
+      1rem 1.8rem;
+
+      border-radius:999px;
+
+      font-weight:800;
+
+      transition:var(--transicao);
+    }
+
+    .botao-principal-biografia:hover{
+
+      background:
+      var(--cor-dourada);
+
+      transform:
+      translateY(-4px);
+
+      box-shadow:
+      0 12px 30px rgba(244,227,0,0.15);
+    }
+
+    .botao-secundario-biografia{
+
+      border:
+      1px solid rgba(244,227,0,0.35);
+
+      color:var(--cor-amarela);
+
+      padding:
+      1rem 1.8rem;
+
+      border-radius:999px;
+
+      transition:var(--transicao);
+
+      font-weight:700;
+    }
+
+    .botao-secundario-biografia:hover{
+
+      background:
+      rgba(244,227,0,0.08);
+
+      transform:
+      translateY(-4px);
+    }
+
+    /* ==========================================
+       SEÇÃO BIOGRAFIA
+    ========================================== */
+
+    .secao-biografia-completa{
+
+      max-width:1100px;
+
+      margin:0 auto;
+
+      padding:
+      7rem 1.5rem;
+    }
+
+    .cabecalho-secao-biografica{
+
+      text-align:center;
+
+      margin-bottom:5rem;
+    }
+
+    .cabecalho-secao-biografica span{
+
+      color:var(--cor-amarela);
+
+      text-transform:uppercase;
+
+      letter-spacing:2px;
+
+      font-size:0.85rem;
+    }
+
+    .cabecalho-secao-biografica h2{
+
+      font-size:
+      clamp(2.3rem,5vw,4rem);
+
+      margin-top:1rem;
+    }
+
+    /* ==========================================
+       TEXTO BIOGRÁFICO
+    ========================================== */
+
+    .conteudo-textual-biografia{
+
+      display:grid;
+
+      gap:2rem;
+    }
+
+    .bloco-textual-historico{
+
+      background:
+      linear-gradient(
+        180deg,
+        rgba(20,20,20,0.95),
+        rgba(12,12,12,0.95)
+      );
+
+      border:
+      1px solid rgba(244,227,0,0.08);
+
+      border-radius:28px;
+
+      padding:2.5rem;
+
+      box-shadow:
+      var(--sombra-principal);
+
+      transition:var(--transicao);
+    }
+
+    .bloco-textual-historico:hover{
+
+      transform:
+      translateY(-6px);
+
+      border-color:
+      rgba(244,227,0,0.25);
+    }
+
+    .bloco-textual-historico h3{
+
+      color:var(--cor-amarela);
+
+      font-size:1.7rem;
+
+      margin-bottom:1.3rem;
+    }
+
+    .bloco-textual-historico p{
+
+      color:var(--texto-secundario);
+
+      line-height:2;
+
+      font-size:1.04rem;
+    }
+
+    /* ==========================================
+       FRASE DE IMPACTO
+    ========================================== */
+
+    .bloco-citacao-historica{
+
+      margin-top:5rem;
+
+      text-align:center;
+
+      padding:
+      4rem 2rem;
+
+      border:
+      1px solid rgba(244,227,0,0.12);
+
+      border-radius:30px;
+
+      background:
+      radial-gradient(
+        circle at top,
+        rgba(244,227,0,0.05),
+        transparent 60%
+      ),
+
+      rgba(12,12,12,0.92);
+    }
+
+    .bloco-citacao-historica blockquote{
+
+      font-size:
+      clamp(1.8rem,4vw,3rem);
+
+      line-height:1.5;
+
+      font-weight:700;
+
+      color:#F5F5F5;
+
+      max-width:900px;
+
+      margin:0 auto 1.5rem;
+    }
+
+    .bloco-citacao-historica cite{
+
+      color:var(--cor-amarela);
+
+      font-style:normal;
+
+      letter-spacing:1px;
+    }
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+
+
+    /* ==========================================
+       RESPONSIVIDADE
+    ========================================== */
+
+    @media(max-width:1100px){
+
+      .container-hero-biografico{
+
+        grid-template-columns:1fr;
+
+        gap:3rem;
+      }
+
+      .imagem-retrato-historico img{
+
+        height:550px;
+      }
+
+      .titulo-personagem-historico{
+
+        font-size:4rem;
+      }
+    }
+
+    @media(max-width:780px){
+
+      .grade-informacoes-biograficas{
+
+        grid-template-columns:1fr;
+      }
+
+      .titulo-personagem-historico{
+
+        font-size:3rem;
+      }
+
+      .frase-impacto-biografico{
+
+        font-size:1.1rem;
+      }
+
+      .imagem-retrato-historico img{
+
+        height:450px;
+      }
+
+      .bloco-textual-historico{
+
+        padding:2rem;
+      }
+    }
+
+    @media(max-width:580px){
+
+      .hero-biografia-singular{
+
+        padding:3rem 1.3rem;
+      }
+
+      .titulo-personagem-historico{
+
+        font-size:2.5rem;
+      }
+
+      .imagem-retrato-historico img{
+
+        height:350px;
+      }
+
+      .grupo-acoes-biografia{
+
+        flex-direction:column;
+      }
+
+      .botao-principal-biografia,
+      .botao-secundario-biografia{
+
+        text-align:center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================
+       HERO BIOGRÁFICO
+  ========================================== -->
+
+  <header class="hero-biografia-singular">
+
+    <div class="container-hero-biografico">
+
+      <!-- IMAGEM -->
+
+      <div class="bloco-imagem-biografica">
+
+        <div class="imagem-retrato-historico">
+
+          <img
+          src="#"
+          alt="Antônio Conselheiro">
+
+        </div>
+
+        <div class="selo-era-historica">
+
+          <span>Período Histórico</span>
+
+          <h3>1830 — 1897</h3>
+
+        </div>
+
+      </div>
+
+      <!-- CONTEÚDO -->
+
+      <div class="conteudo-biografia-detalhada">
+
+        <div class="categoria-personagem">
+          Líder • Canudos
+        </div>
+
+        <h1 class="titulo-personagem-historico">
+          Antônio
+          <span>Conselheiro</span>
+        </h1>
+
+        <p class="frase-impacto-biografico">
+           "Neste dia quando sair com o seu exército tira a todos no fio da espada deste papel da República. O fim desta guerra se acabará na Santa Casa de Roma e o sangue há de ir até á junta grossa" - Os sertões: campanha de Canudos, <strong>Euclides da Cunha</strong>
+        </p>
+
+        <!-- INFORMAÇÕES -->
+
+        <div class="grade-informacoes-biograficas">
+
+          <div class="cartao-informacao-historica">
+
+            <span>Nascimento</span>
+
+            <h4>13 de Março de 1830</h4>
+
+          </div>
+
+          <div class="cartao-informacao-historica">
+
+            <span>Origem</span>
+
+            <h4>Quixeramobim - Ceará</h4>
+
+          </div>
+
+          <div class="cartao-informacao-historica">
+
+            <span>Legado</span>
+
+            <h4>Fundador Do Arraial Do Belo Monte, Conhecido Como <a href="#">Canudos</a></h4>
+
+          </div>
+
+        </div>
+
+        <!-- BOTÕES -->
+
+        <div class="grupo-acoes-biografia">
+
+          <a href="#biografia-completa"
+          class="botao-principal-biografia">
+            Explorar Biografia ↓
+          </a>
+
+          <a href="../icones-historicos.html"
+          class="botao-secundario-biografia">
+            Voltar ao Arquivo
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- ==========================================
+       BIOGRAFIA COMPLETA
+  ========================================== -->
+
+  <main
+  id="biografia-completa"
+  class="secao-biografia-completa">
+
+    <div class="cabecalho-secao-biografica">
+
+      <span>Trajetória Histórica</span>
+
+      <h2>
+        Uma vida que mudou a história do Nordeste
+      </h2>
+
+    </div>
+
+    <div class="conteudo-textual-biografia">
+
+      <!-- BLOCO 1 -->
+
+      <section class="bloco-textual-historico">
+
+        <h3>Primeiros anos</h3>
+
+        <p>
+          Nasceu em 13 De Março de 1830, na atual cidade De Quixeramobim, No Ceará, faleceu em Canudos/BA, em 22/09/1897.  Foi um líder religioso e o fundador Do Arraial Do Belo Monte, Conhecido Como Canudos. O pai era comerciante e sua mãe faleceu quando ele tinha seis anos. Ambos desejavam que o filho fosse sacerdote. Sendo este um meio utilizado entre as famílias com pouco recursos para que os filhos(a), tivesse ascensão social.
+        </p>
+
+      </section>
+
+      <!-- BLOCO 2 -->
+
+      <section class="bloco-textual-historico">
+
+        <h3>Canudos</h3>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fuga beatae provident dolorem sed blanditiis. Facere obcaecati ea corporis asperiores tempora non doloremque eum amet sapiente, saepe est ad laudantium.
+        </p>
+
+      </section>
+
+      <!-- BLOCO 3 -->
+
+      <section class="bloco-textual-historico">
+
+        <h3>Legado </h3>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, tenetur non delectus at modi libero! Sed, eos ea. Debitis modi, quod illo cumque qui veniam odit veritatis odio rerum ea.
+        </p>
+
+      </section>
+
+    </div>
+
+    <!-- FRASE -->
+
+    <div class="bloco-citacao-historica">
+
+      <blockquote>
+        “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tempora molestiae obcaecati tenetur expedita in? Ad harum dolor fugiat rerum doloremque facere non minima nostrum optio tempore quis, autem error?”
+      </blockquote>
+
+      <cite>
+        — Januário
+      </cite>
+
+    </div>
+
+  </main>
+
+  <!-- ==========================================
+       RODAPÉ
+  ========================================== -->
+
+
+
+</body>
+</html>
