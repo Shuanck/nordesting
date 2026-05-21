@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Ícones Históricos</title>
+
+  <style>
+
+    /* ==========================================
+       RESET GLOBAL
+    ========================================== */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"Segoe UI",sans-serif;
+
+      background:
+        radial-gradient(circle at top,
+        rgba(244,227,0,0.08),
+        transparent 25%),
+
+        linear-gradient(
+          to bottom,
+          #050505,
+          #0B0B0B,
+          #111111
+        );
+
+      color:#F5F5F5;
+
+      overflow-x:hidden;
+    }
+
+    img{
+      display:block;
+      width:100%;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    /* ==========================================
+       VARIÁVEIS DA IDENTIDADE VISUAL
+    ========================================== */
+
+    :root{
+
+      --cor-fundo-principal:#050505;
+
+      --cor-fundo-secundario:#111111;
+
+      --cor-card-destaque:#1A1A1A;
+
+      --cor-destaque-principal:#F4E300;
+
+      --cor-hover-refinado:#C9A227;
+
+      --cor-texto-principal:#F5F5F5;
+
+      --cor-texto-secundario:#CFCFCF;
+
+      --cor-linha-trajeto:
+      rgba(244,227,0,0.35);
+
+      --sombra-card:
+      0 15px 40px rgba(0,0,0,0.55);
+
+      --transicao-padrao:
+      0.35s ease;
+    }
+
+    /* ==========================================
+       HERO
+    ========================================== */
+
+    .portal-jornada-hero{
+
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:4rem 1.5rem;
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .portal-jornada-hero::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:700px;
+      height:700px;
+
+      background:
+      radial-gradient(
+        circle,
+        rgba(244,227,0,0.12),
+        transparent 70%
+      );
+
+      top:-280px;
+      right:-180px;
+
+      border-radius:50%;
+    }
+
+    .hero-conteudo-expansivo{
+
+      max-width:950px;
+
+      text-align:center;
+
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-marca-introducao{
+
+      display:inline-block;
+
+      padding:0.7rem 1.4rem;
+
+      border-radius:999px;
+
+      margin-bottom:1.5rem;
+
+      border:
+      1px solid rgba(244,227,0,0.35);
+
+      color:var(--cor-destaque-principal);
+
+      background:
+      rgba(255,255,255,0.02);
+
+      backdrop-filter:blur(6px);
+
+      letter-spacing:1px;
+
+      font-size:0.9rem;
+    }
+
+    .hero-titulo-centralizado{
+
+      font-size:
+      clamp(3rem,7vw,5.7rem);
+
+      line-height:1.05;
+
+      margin-bottom:1.5rem;
+
+      font-weight:800;
+    }
+
+    .hero-titulo-centralizado span{
+
+      color:var(--cor-destaque-principal);
+
+      text-shadow:
+      0 0 15px rgba(244,227,0,0.35);
+    }
+
+    .hero-descricao-narrativa{
+
+      max-width:760px;
+
+      margin:
+      0 auto 2rem;
+
+      line-height:1.9;
+
+      color:var(--cor-texto-secundario);
+
+      font-size:1.08rem;
+    }
+
+    .hero-cta-jornada{
+
+      display:inline-flex;
+
+      align-items:center;
+      gap:0.8rem;
+
+      background:
+      var(--cor-destaque-principal);
+
+      color:#050505;
+
+      padding:
+      1rem 1.8rem;
+
+      border-radius:999px;
+
+      font-weight:800;
+
+      transition:
+      var(--transicao-padrao);
+    }
+
+    .hero-cta-jornada:hover{
+
+      background:
+      var(--cor-hover-refinado);
+
+      transform:
+      translateY(-5px);
+
+      box-shadow:
+      0 15px 35px rgba(244,227,0,0.18);
+    }
+
+    /* ==========================================
+       CONTAINER DA LINHA DO TEMPO
+    ========================================== */
+
+    .secao-trajeto-biografico{
+
+      position:relative;
+
+      max-width:1300px;
+
+      margin:0 auto;
+
+      padding:
+      4rem 1.5rem 7rem;
+    }
+
+    /* Linha central */
+
+    .secao-trajeto-biografico::before{
+
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      left:50%;
+
+      transform:
+      translateX(-50%);
+
+      width:5px;
+      height:100%;
+
+      border-radius:999px;
+
+      background:
+      linear-gradient(
+        to bottom,
+        transparent,
+        rgba(244,227,0,0.25),
+        #F4E300,
+        rgba(244,227,0,0.25),
+        transparent
+      );
+
+      box-shadow:
+      0 0 18px rgba(244,227,0,0.25);
+    }
+
+    /* ==========================================
+       ESTAÇÕES
+    ========================================== */
+
+    .estacao-memoria-humana{
+
+      position:relative;
+
+      width:100%;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+
+      margin:5rem 0;
+    }
+
+    .estacao-memoria-humana:nth-child(even){
+
+      flex-direction:row-reverse;
+    }
+
+    /* Marcador central */
+
+    .marcador-trajeto-historico{
+
+      position:absolute;
+
+      left:50%;
+      top:50%;
+
+      transform:
+      translate(-50%,-50%);
+
+      width:28px;
+      height:28px;
+
+      background:
+      var(--cor-destaque-principal);
+
+      border-radius:50%;
+
+      border:
+      5px solid #050505;
+
+      z-index:10;
+
+      box-shadow:
+      0 0 22px rgba(244,227,0,0.45);
+    }
+
+    /* ==========================================
+       CARD BIOGRÁFICO
+    ========================================== */
+
+    .cartao-biografico-singular{
+
+      width:calc(50% - 70px);
+
+      background:
+      linear-gradient(
+        180deg,
+        rgba(30,30,30,0.95),
+        rgba(12,12,12,0.95)
+      );
+
+      border:
+      1px solid rgba(244,227,0,0.10);
+
+      border-radius:26px;
+
+      overflow:hidden;
+
+      backdrop-filter:blur(10px);
+
+      box-shadow:
+      var(--sombra-card);
+
+      transition:
+      var(--transicao-padrao);
+
+      opacity:0;
+
+      transform:
+      translateY(60px);
+    }
+
+    /* Animação */
+
+    .cartao-biografico-singular.ativo-revelacao{
+
+      opacity:1;
+
+      transform:
+      translateY(0);
+    }
+
+    /* Hover */
+
+    .cartao-biografico-singular:hover{
+
+      transform:
+      translateY(-12px);
+
+      border-color:
+      rgba(244,227,0,0.35);
+
+      box-shadow:
+      0 20px 55px rgba(0,0,0,0.7),
+      0 0 22px rgba(244,227,0,0.08);
+    }
+
+    /* Imagem */
+
+    .cartao-imagem-destaque{
+
+      height:280px;
+
+      overflow:hidden;
+    }
+
+    .cartao-imagem-destaque img{
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      transition:
+      transform 0.7s ease,
+      filter 0.5s ease;
+    }
+
+    .cartao-biografico-singular:hover img{
+
+      transform:
+      scale(1.08);
+
+      filter:
+      brightness(1.05)
+      contrast(1.04);
+    }
+
+    /* Conteúdo */
+
+    .conteudo-identidade-biografica{
+
+      padding:2rem;
+    }
+
+    .categoria-personagem-historico{
+
+      color:
+      var(--cor-destaque-principal);
+
+      font-size:0.82rem;
+
+      text-transform:uppercase;
+
+      letter-spacing:1.5px;
+
+      margin-bottom:1rem;
+
+      font-weight:700;
+    }
+
+    .nome-personagem-biografia{
+
+      font-size:2rem;
+
+      line-height:1.2;
+
+      margin-bottom:1rem;
+    }
+
+    .descricao-personagem-jornada{
+
+      color:
+      var(--cor-texto-secundario);
+
+      line-height:1.8;
+
+      margin-bottom:1.8rem;
+    }
+
+    /* Botão */
+
+    .botao-explorar-biografia{
+
+      display:inline-flex;
+
+      align-items:center;
+      gap:0.7rem;
+
+      padding:
+      0.95rem 1.5rem;
+
+      border-radius:999px;
+
+      border:
+      1px solid rgba(244,227,0,0.45);
+
+      color:
+      var(--cor-destaque-principal);
+
+      font-weight:700;
+
+      transition:
+      var(--transicao-padrao);
+    }
+
+    .botao-explorar-biografia:hover{
+
+      background:
+      var(--cor-destaque-principal);
+
+      color:#050505;
+
+      transform:
+      translateX(6px);
+
+      box-shadow:
+      0 10px 25px rgba(244,227,0,0.18);
+    }
+
+    /* ==========================================
+       RODAPÉ
+    ========================================== */
+
+
+    /* ==========================================
+       RESPONSIVIDADE
+    ========================================== */
+
+    @media(max-width:920px){
+
+      .secao-trajeto-biografico::before{
+
+        left:25px;
+      }
+
+      .estacao-memoria-humana,
+      .estacao-memoria-humana:nth-child(even){
+
+        flex-direction:column;
+
+        align-items:flex-start;
+      }
+
+      .marcador-trajeto-historico{
+
+        left:25px;
+      }
+
+      .cartao-biografico-singular{
+
+        width:calc(100% - 70px);
+
+        margin-left:70px;
+      }
+
+      .hero-titulo-centralizado{
+
+        font-size:3.5rem;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .cartao-biografico-singular{
+
+        width:calc(100% - 55px);
+
+        margin-left:55px;
+      }
+
+      .cartao-imagem-destaque{
+
+        height:220px;
+      }
+
+      .conteudo-identidade-biografica{
+
+        padding:1.5rem;
+      }
+
+      .nome-personagem-biografia{
+
+        font-size:1.6rem;
+      }
+
+      .hero-titulo-centralizado{
+
+        font-size:2.7rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  
+
+  <!-- ==========================================
+       HERO
+  ========================================== -->
+
+  <header class="portal-jornada-hero">
+
+    <div class="hero-conteudo-expansivo">
+
+      <div class="hero-marca-introducao">
+        Ícones Históricos
+      </div>
+
+      <h1 class="hero-titulo-centralizado">
+        Heróis que moldaram a
+        <span>história do Nordeste</span>
+      </h1>
+
+      <p class="hero-descricao-narrativa">
+        Uma jornada através de figuras que redefiniram
+        a história do Nordeste. Role o caminho central
+        e descubra os legados que atravessaram gerações.
+      </p>
+
+      <a href="#inicio-trajeto-historico"
+      class="hero-cta-jornada">
+        Iniciar Jornada ↓
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- ==========================================
+       LINHA DO TEMPO
+  ========================================== -->
+
+  <main
+    id="inicio-trajeto-historico"
+    class="secao-trajeto-biografico"
+  >
+
+    <!-- ESTAÇÃO 1 -->
+
+    <article class="estacao-memoria-humana">
+
+      <div class="marcador-trajeto-historico"></div>
+
+      <section class="cartao-biografico-singular">
+
+        <div class="cartao-imagem-destaque">
+
+          <img
+          src="imagens-herois/André-Albuquerque.jpg"
+          alt="André de Albuquerque Maranhão">
+
+        </div>
+
+        <div class="conteudo-identidade-biografica">
+
+          <div class="categoria-personagem-historico">
+            Líder • Revoluação Pernambucana
+          </div>
+
+          <h2 class="nome-personagem-biografia">
+            André de Albuquerque Maranhão
+          </h2>
+
+          <p class="descricao-personagem-jornada">
+            Um dos líderes da Revolução de 1817 (conhecida como Revolução Pernambucana). É lembrado como um dos líderes corajosos e idealistas da Revolução Pernambucana. 
+          </p>
+
+          <a href="biografias/andre-albuquerque.html"
+          class="botao-explorar-biografia">
+            Ler Biografia →
+          </a>
+
+        </div>
+
+      </section>
+
+    </article>
+
+    <!-- ESTAÇÃO 2 -->
+
+    <article class="estacao-memoria-humana">
+
+      <div class="marcador-trajeto-historico"></div>
+
+      <section class="cartao-biografico-singular">
+
+        <div class="cartao-imagem-destaque">
+
+          <img
+          src="imagens-herois/antonio.jpg"
+          alt="Antonio Conselheiro">
+
+        </div>
+
+        <div class="conteudo-identidade-biografica">
+
+          <div class="categoria-personagem-historico">
+            Líder • Religioso
+          </div>
+
+          <h2 class="nome-personagem-biografia">
+            Antônio Conselheiro
+          </h2>
+
+          <p class="descricao-personagem-jornada">
+            Líder social e religioso Nordestino, que com sua conduta carismática exerceu forte influência nas camadas mais humildes da sociedade Nordestina. Sendo o responsável pela fundação da Comunidade de Canudos.
+          </p>
+
+          <a href="biografias/antonio-conselheiro.html"
+          class="botao-explorar-biografia">
+            Ler Biografia →
+          </a>
+
+        </div>
+
+      </section>
+
+    </article>
+
+    <!-- ESTAÇÃO 3 -->
+
+    <article class="estacao-memoria-humana">
+
+      <div class="marcador-trajeto-historico"></div>
+
+      <section class="cartao-biografico-singular">
+
+        <div class="cartao-imagem-destaque">
+
+          <img
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+          alt="Antônio Filipi Camarão">
+
+        </div>
+
+        <div class="conteudo-identidade-biografica">
+
+          <div class="categoria-personagem-historico">
+            Líder Indígena • Militar • Insurreição Pernambucana
+          </div>
+
+          <h2 class="nome-personagem-biografia">
+            Antônio Filipi Camarão
+          </h2>
+
+          <p class="descricao-personagem-jornada">
+            Foi um líder indígena Potiguara aliado dos portugueses. Sendo um dos heróis da Batalha dos Guararapes, episódio conhecido como Insurreição Pernambucana. Recebeu o título de "Capitão-Mor de Todos os Índios do Brasil"
+          </p>
+
+          <a href="#"
+          class="botao-explorar-biografia">
+            Ler Biografia →
+          </a>
+
+        </div>
+
+      </section>
+
+    </article>
+
+    <!-- ESTAÇÃO 4 -->
+
+   <article class="estacao-memoria-humana">
+
+      <div class="marcador-trajeto-historico"></div>
+
+      <section class="cartao-biografico-singular">
+
+        <div class="cartao-imagem-destaque">
+
+          <img
+          src="#"
+          alt="Bárbara Pereira de Alencar">
+
+        </div>
+
+        <div class="conteudo-identidade-biografica">
+
+          <div class="categoria-personagem-historico">
+            Líder • 
+          </div>
+
+          <h2 class="nome-personagem-biografia">
+            Bárbara Pereira de Alencar
+          </h2>
+
+          <p class="descricao-personagem-jornada">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente magnam ex facilis voluptates reprehenderit! Id adipisci ipsa totam vel atque facere corporis doloribus laborum nostrum distinctio! Possimus nemo laborum officia?
+          </p>
+
+          <a href="#"
+          class="botao-explorar-biografia">
+            Ler Biografia →
+          </a>
+
+        </div>
+
+      </section>
+
+    </article>
+    
+    <!--Estação 5-->
+
+    <article class="estacao-memoria-humana">
+
+      <div class="marcador-trajeto-historico"></div>
+
+      <section class="cartao-biografico-singular">
+
+        <div class="cartao-imagem-destaque">
+
+          <img
+          src="#"
+          alt="Cipriano José Barata de Almeida">
+
+        </div>
+
+        <div class="conteudo-identidade-biografica">
+
+          <div class="categoria-personagem-historico">
+            Líder • 
+          </div>
+
+          <h2 class="nome-personagem-biografia">
+            Cipriano José Barata de Almeida
+          </h2>
+
+          <p class="descricao-personagem-jornada">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id commodi, illum itaque enim fugit tempora quisquam illo incidunt aspernatur asperiores eveniet vero repellat provident perferendis nobis magni non, harum cum.
+          </p>
+
+          <a href="#"
+          class="botao-explorar-biografia">
+            Ler Biografia →
+          </a>
+
+        </div>
+
+      </section>
+
+    </article>
+
+    <!--ESTAÇÃO 6-->
+
+    <article class="estacao-memoria-humana">
+
+      <div class="marcador-trajeto-historico"></div>
+
+      <section class="cartao-biografico-singular">
+
+        <div class="cartao-imagem-destaque">
+
+          <img
+          src="#"
+          alt="Clara Joaquina de Almeida Castro">
+
+        </div>
+
+        <div class="conteudo-identidade-biografica">
+
+          <div class="categoria-personagem-historico">
+            Líder • 
+          </div>
+
+          <h2 class="nome-personagem-biografia">
+            Clara Joaquina de Almeida Castro
+          </h2>
+
+          <p class="descricao-personagem-jornada">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente magnam ex facilis voluptates reprehenderit! Id adipisci ipsa totam vel atque facere corporis doloribus laborum nostrum distinctio! Possimus nemo laborum officia?
+          </p>
+
+          <a href="#"
+          class="botao-explorar-biografia">
+            Ler Biografia →
+          </a>
+
+        </div>
+
+      </section>
+
+    </article>
+   
+    <!--ESTAÇÃO 7-->
+
+    <article class="estacao-memoria-humana">
+
+      <div class="marcador-trajeto-historico"></div>
+
+      <section class="cartao-biografico-singular">
+
+        <div class="cartao-imagem-destaque">
+
+          <img
+          src="#"
+          alt="Dandara dos Palmares">
+
+        </div>
+
+        <div class="conteudo-identidade-biografica">
+
+          <div class="categoria-personagem-historico">
+            Líder • 
+          </div>
+
+          <h2 class="nome-personagem-biografia">
+            Dandara dos Palmares
+          </h2>
+
+          <p class="descricao-personagem-jornada">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id commodi, illum itaque enim fugit tempora quisquam illo incidunt aspernatur asperiores eveniet vero repellat provident perferendis nobis magni non, harum cum.
+          </p>
+
+          <a href="#"
+          class="botao-explorar-biografia">
+            Ler Biografia →
+          </a>
+
+        </div>
+
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- ==========================================
+       RODAPÉ
+  ========================================== -->
+
+
+
+
+  
+
+  <!-- ==========================================
+       ANIMAÇÃO DE SCROLL
+  ========================================== -->
+
+  <script>
+
+    const elementosRevelacao =
+    document.querySelectorAll(
+      ".cartao-biografico-singular"
+    );
+
+    const observadorScrollNarrativo =
+    new IntersectionObserver((entradas)=>{
+
+      entradas.forEach((entradaAtual)=>{
+
+        if(entradaAtual.isIntersecting){
+
+          entradaAtual.target.classList.add(
+            "ativo-revelacao"
+          );
+        }
+
+      });
+
+    },{
+
+      threshold:0.2
+
+    });
+
+    elementosRevelacao.forEach((elementoAtual)=>{
+
+      observadorScrollNarrativo.observe(
+        elementoAtual
+      );
+
+    });
+
+  </script>
+
+</body>
+</html>
